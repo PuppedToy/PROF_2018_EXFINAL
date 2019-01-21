@@ -10,29 +10,30 @@ import org.junit.Test;
 
 public class GreetingTest {
 	
-	private Calendar calendar;
+	private Calendar morning_calendar;
 	
 	@Before
 	public void before() {
-		calendar = new MyCalendar();
+		morning_calendar = mock(MyCalendar.class);
+		when(morning_calendar.get(Calendar.HOUR_OF_DAY)).thenReturn(10);
 	}
 
 	@Test
 	public void smokeTest1() {
 		Greeting greeting = new Greeting();
-		assertEquals("Good morning", greeting.getGreeting(null, calendar));
+		assertEquals("Good morning", greeting.getGreeting(null, morning_calendar));
 	}
 	
 	@Test
 	public void smokeTest2() {
 		Greeting greeting = new Greeting();
-		assertEquals("Good morning", greeting.getGreeting(Language.ENGLISH, calendar));
+		assertEquals("Good morning", greeting.getGreeting(Language.ENGLISH, morning_calendar));
 	}
 	
 	@Test
 	public void smokeTest3() {
 		Greeting greeting = new Greeting();
-		assertEquals("Buenos días", greeting.getGreeting(Language.SPANISH, calendar));
+		assertEquals("Buenos días", greeting.getGreeting(Language.SPANISH, morning_calendar));
 	}
 
 }
