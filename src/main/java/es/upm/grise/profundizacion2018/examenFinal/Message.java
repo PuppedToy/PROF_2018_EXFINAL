@@ -1,12 +1,15 @@
 package es.upm.grise.profundizacion2018.examenFinal;
 
 public class Message {
+	
+	public Message() {}
 
-	public static Language getDefaultLanguage() {
+	// No podemos hacer testing de un static
+	public Language getDefaultLanguage() {
 		return Language.ENGLISH;
 	}
 
-	public static String getMessage( TimeOfTheDay moment, Language language ) {
+	public String getMessage( TimeOfTheDay moment, Language language ) {
 		
 		String message = "";
 		switch ( moment ) {
@@ -21,7 +24,7 @@ public class Message {
 		return message;
 	}
 
-	private static String getMorningMessage( Language language ) {
+	private String getMorningMessage( Language language ) {
 		String message = "";
 		switch ( language ) {
 			case ENGLISH :	message = "Good morning";
@@ -33,7 +36,7 @@ public class Message {
 		return message;
 	}
 
-	private static String getAfternoonMessage( Language language ) {
+	private String getAfternoonMessage( Language language ) {
 		String message = "";
 		switch ( language ) {
 			case ENGLISH :	message = "Good afternoon";
@@ -45,7 +48,7 @@ public class Message {
 		return message;
 	}
 
-	private static String getEveningMessage( Language language ) {
+	private String getEveningMessage( Language language ) {
 		String message = "";
 		switch ( language ) {
 			case ENGLISH :	message = "Good evening";
